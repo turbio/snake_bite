@@ -45,7 +45,7 @@ bool arowm;
 bool fs;
 bool gin;
 bool pausemenu;
-bool pause;
+bool _pause;
 int snake_bitmap_frame;
 int snake_bitmap_x;
 bool enter_key_in;
@@ -69,7 +69,7 @@ volatile long dubl;
 
 void ticker(){counter++;}
 void rticker(){
-    if(pause == false){
+    if(_pause == false){
         timeremaining--;
     }
 }
@@ -598,7 +598,7 @@ void sgame(){
     blue = 255;
     dubl = 0;
     gin = true;
-    pause = false;
+    _pause = false;
     snake_bitmap_frame = 1;
     snake_bitmap_x = 0;
     game_over_screen = false;
@@ -616,7 +616,7 @@ void egame(){
 
 void pgame(){
     gin = false;
-    pause = true;
+    _pause = true;
     arrowy = 120;
     menupos = 1;
     pausemenu = true;
@@ -624,7 +624,7 @@ void pgame(){
 
 void resume_game(){
     gin = true;
-    pause = false;
+    _pause = false;
     pausemenu = false;
 }
 
@@ -632,7 +632,7 @@ void to_main_menu(){
     MIDI *menu_bg_midi = load_midi("menu.mid");
     gameon = false;
     menupos = 1;
-    pause = false;
+    _pause = false;
     pausemenu = false;
     menu = true;
     enter_key_in = false;
@@ -646,7 +646,7 @@ void game_over(){
     arrowy = 163;
     arrowx = 230;
     menupos = 1;
-    pause = true;
+    _pause = true;
     timeremaining = 1;
 }
 
